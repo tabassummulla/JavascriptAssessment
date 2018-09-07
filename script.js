@@ -10,7 +10,6 @@
 
 				document.getElementById("listJSON").setVisibility = "visible";
 
-			
 
 			}
 			 else {
@@ -91,25 +90,21 @@
 }
 }
 
-	
-	function undrop() {
 
+function goAway(){
 
-		window.onmouseleave = function(event) {
+var element = document.getElementById("listJSON");
 
-			document.getElementById("listJSON").setVisibility = "hidden";
-	}
+element.style.visibility = "hidden";
+
 }
-		
-
-
 
 
 	
 	function search() {
 
 
-	var requestURL = "https://raw.githubusercontent.com/tabassummulla/JavascriptAssessment/master/data.js";
+	var requestURL = "https://raw.githubusercontent.com/tabassummulla/JavascriptAssessment/master/data.json";
 
 	var request = new XMLHttpRequest();
 
@@ -119,7 +114,6 @@
 
 	request.send();
 
-
 	request.onload = function() {
 
 		var requestData = request.response;
@@ -127,7 +121,6 @@
 		var userI = document.getElementById("userInput").value ;
 
 		
-
 		var result = [];
 
 		result.push(requestData.filter(a => Object.values(a).includes(userI)));
@@ -141,6 +134,97 @@
 
 
 	}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 		function validate() {
+
+
+		var addressInput = document.getElementById("address");
+		var dateInput = document.getElementById("DOB");
+		var postInput = document.getElementById("postcode");
+	
+
+	 	var email = document.getElementById("uemail");
+		var name = document.getElementById("name");
+
+	 	var emailFormat = /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}/;
+		var nameFormat = /[a-zA-Z]/;
+		var addressFormat = /[a-zA-Z0-9]/;
+		var postcodeFormat = /[a-zA-Z].[0-9]/;
+
+
+			if(name.value == "" || email.value == "" || addressInput.value == "" || dateInput.value == "" || postInput.value ==""){
+
+ 			alert("Please fill in all required fields");
+
+
+ 		}  else if(!(name.value.match(nameFormat))){
+ 						
+ 				alert("Name not Valid");
+
+ 			document.getElementById("name").focus(); 
+
+ 		return false;
+
+ 	}  else if(!(email.value.match(emailFormat)) ){
+
+							alert("Email not Valid");
+ 						document.getElementById("uemail").focus();
+
+ 						return false;
+ 					}
+
+ 			else if(!(addressInput.value.match(addressFormat)) ){
+
+						alert("Address not Valid");
+
+ 					document.getElementById("address").focus();
+
+ 					return false;
+ 					}
+
+
+ 				else if( ! (postInput.value.match(postcodeFormat))){
+
+						alert("Postcode not Valid");
+ 					document.getElementById("postInput").focus();
+
+ 					return false;
+
+
+ 				}
+ 				}
+
+
+ 				
+
+ 				
+		
+		
+
+
+
+
+ 	
+
+ 	
 
 		
 

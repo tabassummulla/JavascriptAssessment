@@ -12,17 +12,8 @@
 
 
 
-<body>
+<body style="display: inline-block;">
 
-<style type="text/css">
-
-
-#nav {
-
-	display: inline-block;
-	position: fixed;
-	justify-content: right;
-}
 
 
 </style>
@@ -32,7 +23,7 @@
 <element class="nav" id="jsonList" onmouseover="dropDownJSON()" 
 onmouseleave="undrop()"  > JSON </element> 
 
-<div id="listJSON"></div>
+<div id="listJSON" onmouseleave= "goAway()"></div>
 
 <element  class ="nav id="formList" onmouseover="dropDownForm()"> Forms </element> 
 <div id="listform"></div>
