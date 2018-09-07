@@ -109,7 +109,7 @@
 	function search() {
 
 
-	var requestURL = "/JavaScriptAsessement/data.js";
+	var requestURL = "https://raw.githubusercontent.com/tabassummulla/JavascriptAssessment/master/data.js";
 
 	var request = new XMLHttpRequest();
 
@@ -122,14 +122,15 @@
 
 	request.onload = function() {
 
-
-		var userInput = document.getElementById("search").value ;
-
 		var requestData = request.response;
+
+		var userI = document.getElementById("userInput").value ;
+
+		
 
 		var result = [];
 
-		result.push(requestData.filter(a => Object.values(a).includes(userInput)));
+		result.push(requestData.filter(a => Object.values(a).includes(userI)));
 
 		document.getElementById("results").innerHTML = "<pre>" + JSON.stringify(result,null,7) + "</pre>";
 
